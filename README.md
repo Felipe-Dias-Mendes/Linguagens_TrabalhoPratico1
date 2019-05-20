@@ -24,4 +24,9 @@ Matriz 2, em que estamos na posição (0, 1), por´em a posi¸c˜ao (0, 0) agora
 andar mais uma vez sobre essa posição.
 
 Portando o objetivo é achar o caminho que seja capaz e andar por toda a matriz sem que se passe por
-valores negativos. O passo a passo que tem que ser dado para alcançar todas as posições da matriz
+valores negativos. O passo a passo que tem que ser dado para alcançar todas as posições da matrizdeve ser um lista de passos que diz se vai ir para cima, direita, embaixo ou esquerda. O programa deve ser capaz de criar um arquivo que deve conter todas as possibilidades de andar na matriz completa,
+em que cada passo é separado por um espaço e cada linha diz qual a sequencia de passos para alcan¸car
+todas as posições da matriz.
+
+Entrega e Critérios de Avaliação Todo o código fonte produzido deve ser entregue em um único
+arquivo comprimido (.zip) no moodle até as 23h e 59m do dia 02/06/2019.
