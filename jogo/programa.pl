@@ -12,7 +12,7 @@ smith([X|Xs], [Y|Ys]):- Y is X-1,
 
 %AREA DE FUNÇÕES QUE FUNCIONAM ----------------------------------------------
 
-%AREA PARA TESTES DE FUNÇÕES ------------------------------------------------
+%AREA DE FUNÇÕES EM TESTES  ------------------------------------------------
 
 %Função que retorna um elemento de uma lista no index I #####################
 procuraLista(0, [X|_], E).
@@ -24,7 +24,7 @@ procuraMatrix(X, Y, M, E):- procuraLista(X, M, Linha),
 							procuraLista(Y, Linha, E). 
 
 
-%AREA PARA TESTES DE FUNÇÕES ------------------------------------------------
+%AREA DE FUNÇÕES EM TESTES  ------------------------------------------------
 
 
 pertence(X , [X|_]).
