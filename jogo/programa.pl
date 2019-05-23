@@ -1,3 +1,32 @@
+
+%AREA DE FUNÇÕES QUE FUNCIONAM ----------------------------------------------
+
+%Função que subtrai 1 de todas as posições de uma matriz ####################
+neo([], []).
+neo([X|Xs], [Y, Ys]) :- smith(X, Y), 
+						neo(Xs, Ys).
+
+smith([], []).
+smith([X|Xs], [Y|Ys]):- Y is X-1,
+ 					smith(Xs, Ys).
+
+%AREA DE FUNÇÕES QUE FUNCIONAM ----------------------------------------------
+
+%AREA PARA TESTES DE FUNÇÕES ------------------------------------------------
+
+%Função que retorna um elemento de uma lista no index I #####################
+procuraLista(0, [X|_], E).
+procuraLista(I, [X|Xs], E):- K is I-1,
+							procuraLista(K, Xs, E).
+
+%Função que retorna um elemento de uma Matriz no index I ####################
+procuraMatrix(X, Y, M, E):- procuraLista(X, M, Linha),
+							procuraLista(Y, Linha, E). 
+
+
+%AREA PARA TESTES DE FUNÇÕES ------------------------------------------------
+
+
 pertence(X , [X|_]).
 pertence(X, [_|Y]):- pertence(X,Y).
 
@@ -24,14 +53,6 @@ sub([X | Xs], A) :- sub(X, ??), sub(Xs, ??). % Não o que eu passo em -> ??
 
 %exemplo matriz 3*3 ex no swi
 %imprimeLista([[1,2,3],[4,5,6],[7,8,9]]).
-
-%Função que subtrai 1 de todas as posições de uma matriz
-neo([], []).
-neo([X|Xs], [Y, Ys]) :- smith(X, Y), neo(Xs, Ys).
-
-smith([], []).
-smith([X|Xs], [Y|Ys]):- Y is X-1, smith(Xs, Ys).
-
 
 % ALGUMAS FUNÇÕES DE LISTAS
 
