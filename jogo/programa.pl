@@ -24,6 +24,20 @@ procuraMatrix(X, Y, M, E):- procuraLista(X, M, Linha),
 							procuraLista(Y, Linha, E). 
 
 
+%Função de jogada ##########################################################
+jogada(c(X,Y), Matrix1, c(X,Y), Matrix2):- 
+
+%Função que movimenta na Matrix ############################################
+%Ir pra Direita
+move(c(X,Y), c(Z,W)):- Y < ColunaM, W is Y+1, Z=:=X.
+%Ir pra Esquerda
+move(c(X,Y), c(Z,W)):- Y > ColunaM, W is Y-1, Z=:=X.
+%Ir pra Baixo
+move(c(X,Y), c(Z,W)):- X < LinhaM, Z is X+1, W=:=Y.
+%Ir pra Cima
+move(c(X,Y), c(Z,W)):- X > LinhaM, Z is X-1, W=:=Y.
+
+
 %AREA DE FUNÇÕES EM TESTES  ------------------------------------------------
 
 
