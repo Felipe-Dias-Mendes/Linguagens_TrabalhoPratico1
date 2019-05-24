@@ -1,3 +1,16 @@
+%Aula 24/05
+procuraLista(0, [X|_], X).
+procuraLista(I, [X|Xs], E):- K is I-1, procuraLista(K, Xs, E).
+
+procuraMatrix(X, Y, M, E):- procuraLista(X, M, Linha),
+							subtrai(Y, Linha, E), imprimeLista(M).
+
+subtrai(0, [X|_], R):- R is X-1.
+subtrai(I, [X|Xs], E):-  K is I-1, subtrai(K, Xs, E).
+
+imprimeLista([]).
+imprimeLista([X | Y]) :-
+write(X), nl, imprimeLista(Y).
 
 %AREA DE FUNÇÕES QUE FUNCIONAM ----------------------------------------------
 
