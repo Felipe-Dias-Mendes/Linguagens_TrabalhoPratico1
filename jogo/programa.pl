@@ -27,6 +27,10 @@ smith([X|Xs], [Y|Ys]):- Y is X-1,
 
 %AREA DE FUNÇÕES EM TESTES  ------------------------------------------------
 
+inicio(X,Y, M):-procuraMatrix(X,Y, M, E), K is Y+1,
+       (E =:= 10-> write(chamaUmaFunção); procuraMatrix(X,K,M,P),
+       	write(P) ).
+
 %Função que retorna um elemento de uma lista no index I #####################
 procuraLista(0, [X|_], E).
 procuraLista(I, [X|Xs], E):- K is I-1,
