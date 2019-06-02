@@ -1,8 +1,8 @@
 %Start
 %inicio(X,Y, Matrix, MatrixResultados).
-inicio(X,Y, Matrix, Resultado) :- procuraLista(X, Matrix, Linha),
-							subtrai(Y, Linha, Resultado), 
-    						imprimeLista(Resultado).
+%inicio(X,Y, Matrix, Resultado) :- procuraLista(X, Matrix, Linha),
+%							subtrai(Y, Linha, Resultado), 
+%    						imprimeLista(Resultado).
 
 
 %%Retorna os vizinhos(X,Y) de  em uma lista
@@ -20,8 +20,8 @@ verificaFim([]).
 verificaFim([X|Xs]):- X =:= -1, verificaFim(Xs).
 
 %Aula 24/05
-procuraLista(0, [X|_], X).
-procuraLista(I, [_X|Xs], E):- K is I-1, procuraLista(K, Xs, E).
+procuraLista(0, [X|_], X). %Indice encontrado
+procuraLista(I, [_X|Xs], E):- K is I-1, procuraLista(K, Xs, E). % Decremento do Index e chamada recursiva
 
 inicio(X, Y, M):- procuraLista(X, M, Linha),
 							subtrai(Y, Linha, E), imprimeLista(E).
