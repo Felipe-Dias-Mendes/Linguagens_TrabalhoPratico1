@@ -5,7 +5,6 @@ inicio(X,Y, Matrix, Resultado) :- procuraLista(X, Matrix, Linha),
     						imprimeLista(Resultado).
 
 
-
 %%Retorna os vizinhos(X,Y) de  em uma lista
 elementosVizinhos(X,Y, M, [S,I,D,E]) :- elementoSuperior(X,Y,M,S), elementoInferior(X,Y,M,I),elementoDireita(X,Y,M,D),elementoEsquerda(X,Y,M,E).
 
@@ -14,7 +13,11 @@ elementoInferior(X,Y,M,Elemento)  :- N is X+1,procuraMatrix(N,Y,M,Elemento).
 elementoDireita(X,Y,M,Elemento) :- N is Y+1,procuraMatrix(X,N,M,Elemento).
 elementoEsquerda(X,Y,M,Elemento) :- N is Y-1,procuraMatrix(X,N,M,Elemento).
 
+%Verifica o fim do jogo
+fim(X, Y, M):- elementosVizinhos(X,Y, M, Vizinhos), verificaFim(Vizinhos).
 
+verificaFim([]).
+verificaFim([X|Xs]):- X =:= -1, verificaFim(Xs).
 
 %Aula 24/05
 procuraLista(0, [X|_], X).
