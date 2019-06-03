@@ -1,6 +1,6 @@
 %
 %	FELIPE DIAS MENDES 16.2.8275
-%	mAYCON MÜLLER 	   16.2.8511
+%	MAYCON MÜLLER 	   16.2.8511
 %
 %Start
 %inicio(X,Y, Matrix, MatrixResultados).
@@ -98,7 +98,7 @@ move(c(X,Y), c(Z,W)):- X > LinhaM, Z is X-1, W=:=Y.
 
 %AREA DE FUNÇÕES EM TESTES  ------------------------------------------------
 
-
+/*
 pertence(X , [X|_]).
 pertence(X, [_|Y]):- pertence(X,Y).
 
@@ -171,3 +171,4 @@ tamanho([],0).           	%  O tamanho de uma lista vazia é zero.  O tamanho de
 tamanho([_|R],N):-		%  uma lista não-vazia é obtido acrescentando-se uma
 	tamanho(R,N1),     	%  unidade ao tamanho de seu corpo.
 	N is N1 + 1.
+*/
