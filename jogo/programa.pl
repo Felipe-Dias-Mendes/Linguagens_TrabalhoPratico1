@@ -10,45 +10,59 @@
 
 %AREA DE FUNÇÕES QUE FUNCIONAM ----------------------------------------------
 %Inicio 
-inicio(X, Y, M):- procuraLista(X, M, Linha),
-							subtrai(Y, Linha, E), imprimeLista(E).
+	inicio(X, Y, M):- procuraLista(X, M, Linha),
+								subtrai(Y, Linha, E), 
+								imprimeLista(E).
 
 %%Retorna os vizinhos(X,Y) de  em uma lista
-elementosVizinhos(X,Y, M, [S,I,D,E]) :- elementoSuperior(X,Y,M,S), elementoInferior(X,Y,M,I),elementoDireita(X,Y,M,D),elementoEsquerda(X,Y,M,E).
+	elementosVizinhos(X,Y, M, [S,I,D,E]) :- elementoSuperior(X,Y,M,S), 
+											elementoInferior(X,Y,M,I),
+											elementoDireita(X,Y,M,D),
+											elementoEsquerda(X,Y,M,E).
 
-elementoSuperior(X,Y,M,Elemento) :- N is X-1,procuraMatrix(N,Y,M,Elemento).
-elementoInferior(X,Y,M,Elemento)  :- N is X+1,procuraMatrix(N,Y,M,Elemento).
-elementoDireita(X,Y,M,Elemento) :- N is Y+1,procuraMatrix(X,N,M,Elemento).
-elementoEsquerda(X,Y,M,Elemento) :- N is Y-1,procuraMatrix(X,N,M,Elemento).
+	elementoSuperior(X,Y,M,Elemento) :- N is X-1,
+									procuraMatrix(N,Y,M,Elemento).
+	elementoInferior(X,Y,M,Elemento)  :- N is X+1,
+									procuraMatrix(N,Y,M,Elemento).
+	elementoDireita(X,Y,M,Elemento) :- N is Y+1,
+									procuraMatrix(X,N,M,Elemento).
+	elementoEsquerda(X,Y,M,Elemento) :- N is Y-1,
+									procuraMatrix(X,N,M,Elemento).
 
 %Verifica o fim do jogo
-fim(X, Y, M):- elementosVizinhos(X,Y, M, Vizinhos), verificaFim(Vizinhos).
+	fim(X, Y, M):- elementosVizinhos(X,Y, M, Vizinhos), 
+					verificaFim(Vizinhos).
 
-verificaFim([]).
-verificaFim([X|Xs]):- X =:= -1, verificaFim(Xs).
+	verificaFim([]).
+	verificaFim([X|Xs]):- X =:= -1, 
+						verificaFim(Xs).
 
 %Aula 24/05
-procuraLista(0, [X|_], X). %Indice encontrado
-procuraLista(I, [_X|Xs], E):- K is I-1, procuraLista(K, Xs, E). % Decremento do Index e chamada recursiva
+	procuraLista(0, [X|_], X). %Indice encontrado
+	procuraLista(I, [_X|Xs], E):- K is I-1, 
+								procuraLista(K, Xs, E). % Decremento do Index e chamada recursiva
 
 %Subtrai -1 de um index
-subtrai(-1, Xs, Xs).
-subtrai(0, [X|Xs], [R|Ys]):- R is X-1, subtrai(-1, Xs, Ys).
-subtrai(I, [X|Xs], [X|Ys]):-  K is I-1, subtrai(K, Xs, Ys).
+	subtrai(-1, Xs, Xs).
+	subtrai(0, [X|Xs], [R|Ys]):- R is X-1, 
+								subtrai(-1, Xs, Ys).
+	subtrai(I, [X|Xs], [X|Ys]):-  K is I-1, 
+								subtrai(K, Xs, Ys).
 
 %Imprime toda Matriz
-imprimeLista([]).
-imprimeLista([X | Y]) :-
-write(X), nl, imprimeLista(Y).
+	imprimeLista([]).
+	imprimeLista([X | Y]) :- write(X), 
+							nl,
+							imprimeLista(Y).
 
 %Função que subtrai 1 de todas as posições de uma matriz ####################
-neo([], []).
-neo([X|Xs], [Y, Ys]) :- smith(X, Y), 
-						neo(Xs, Ys).
+	neo([], []).
+	neo([X|Xs], [Y, Ys]) :- smith(X, Y), 
+							neo(Xs, Ys).
 
-smith([], []).
-smith([X|Xs], [Y|Ys]):- Y is X-1,
- 					smith(Xs, Ys).
+	smith([], []).
+	smith([X|Xs], [Y|Ys]):- Y is X-1,
+	 					smith(Xs, Ys).
 
 %AREA DE FUNÇÕES QUE FUNCIONAM ----------------------------------------------
 
