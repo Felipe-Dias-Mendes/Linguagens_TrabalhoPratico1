@@ -1,3 +1,7 @@
+%
+%	FELIPE DIAS MENDES 16.2.8275
+%	mAYCON MÜLLER 	   16.2.8511
+%
 %Start
 %inicio(X,Y, Matrix, MatrixResultados).
 %inicio(X,Y, Matrix, Resultado) :- procuraLista(X, Matrix, Linha),
