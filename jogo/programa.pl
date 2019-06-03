@@ -68,6 +68,8 @@
 
 %AREA DE FUNÇÕES EM TESTES  ------------------------------------------------
 
+/*
+
 inicio(X,Y, M):-procuraMatrix(X,Y, M, E), K is Y+1,
        (E =:= 10-> write(chamaUmaFunção); procuraMatrix(X,K,M,P),
        	write(P) ).
@@ -98,7 +100,7 @@ move(c(X,Y), c(Z,W)):- X > LinhaM, Z is X-1, W=:=Y.
 
 %AREA DE FUNÇÕES EM TESTES  ------------------------------------------------
 
-/*
+
 pertence(X , [X|_]).
 pertence(X, [_|Y]):- pertence(X,Y).
 
