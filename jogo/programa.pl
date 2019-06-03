@@ -8,6 +8,10 @@
 %							subtrai(Y, Linha, Resultado), 
 %    						imprimeLista(Resultado).
 
+%AREA DE FUNÇÕES QUE FUNCIONAM ----------------------------------------------
+%Inicio 
+inicio(X, Y, M):- procuraLista(X, M, Linha),
+							subtrai(Y, Linha, E), imprimeLista(E).
 
 %%Retorna os vizinhos(X,Y) de  em uma lista
 elementosVizinhos(X,Y, M, [S,I,D,E]) :- elementoSuperior(X,Y,M,S), elementoInferior(X,Y,M,I),elementoDireita(X,Y,M,D),elementoEsquerda(X,Y,M,E).
@@ -27,19 +31,15 @@ verificaFim([X|Xs]):- X =:= -1, verificaFim(Xs).
 procuraLista(0, [X|_], X). %Indice encontrado
 procuraLista(I, [_X|Xs], E):- K is I-1, procuraLista(K, Xs, E). % Decremento do Index e chamada recursiva
 
-inicio(X, Y, M):- procuraLista(X, M, Linha),
-							subtrai(Y, Linha, E), imprimeLista(E).
-
+%Subtrai -1 de um index
 subtrai(-1, Xs, Xs).
 subtrai(0, [X|Xs], [R|Ys]):- R is X-1, subtrai(-1, Xs, Ys).
 subtrai(I, [X|Xs], [X|Ys]):-  K is I-1, subtrai(K, Xs, Ys).
 
+%Imprime toda Matriz
 imprimeLista([]).
 imprimeLista([X | Y]) :-
 write(X), nl, imprimeLista(Y).
-
-
-%AREA DE FUNÇÕES QUE FUNCIONAM ----------------------------------------------
 
 %Função que subtrai 1 de todas as posições de uma matriz ####################
 neo([], []).
